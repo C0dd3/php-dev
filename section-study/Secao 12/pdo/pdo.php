@@ -18,7 +18,7 @@ foreach ($result as $row) { # Script mais elaborado de visualização.
 
     }
 
-    echo "==============================================<br>";
+    echo "===============================================<br>";
     
 }
 
