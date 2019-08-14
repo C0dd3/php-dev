@@ -1,0 +1,6 @@
+# Comandos úteis:
+
+> var_dump: especifíca o tamanho da variável.
+> unset($num1, $num2): retirar o valor dentro da variável.
+> isset(var): indica se há valor na variável.
+> exit: para o código em um lugar específico.
