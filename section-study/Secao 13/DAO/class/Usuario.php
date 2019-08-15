@@ -1,6 +1,8 @@
 <?php
 
-class Usuario {
+class Usuario { # POO-DAO-SELECT
+
+    # Permiti selecionar recursos no banco de dados:
 
     private $idusuario;
     private $deslogin;
@@ -38,6 +40,30 @@ class Usuario {
 
     public function setDtcadastro($value) {
         $this->dtcadastro = $value;
+    }
+
+    public function loadById($id) { # Verifica usuário dentro de BD.
+
+        $sql = new Sql();
+
+        $result = $sql->select("SELECT * FROM tb_usuario WHERE idusuario = :ID", array(
+            ":ID"=>$id
+        )); # Dessa forma é possível criar um select que veja os parametros dentro do BD
+
+        if(isset($result)) { # Verifica se existe elementos no BD
+
+            $row = $result[0];
+
+            # Para cada set, haverá um resultado oridunda de um array dentro do banco.
+
+            $this->setIdusuario($row['idusuario']);
+            $this->setDeslogin($row['deslogin']);
+            $this->setDessenha($row['dessenha']);
+            $this->setDtcadastro($row['dtcadastro']);
+
+            //Continue...
+        }
+
     }
 
 }
